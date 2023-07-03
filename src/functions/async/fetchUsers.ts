@@ -1,4 +1,4 @@
-import { User, UserAPIFetchResult } from "../types/user";
+import { User, UserAPIFetchResult } from "../../types/user";
 
 const fetchUsers = async (url: string, page: number) => {
   try {
