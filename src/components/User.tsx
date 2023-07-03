@@ -9,29 +9,18 @@ export const UserComponent: React.FC<User> = ({
   last_name,
   id,
 }) => {
-  const [isShown, setIsShown] = React.useState(false);
-
-  const handleClick = () => {
-    setIsShown(!isShown);
-  };
-
   return (
-    <>
-      <li
-        key={id}
-        className='flex flex-row bg-slate-200 shadow-lg items-center px-4 w-72 h-20 gap-8 rounded-lg'
-        onClick={handleClick}
-      >
-        <img src={avatar} className='w-14 h-14 rounded-full shadow-md' />
-        <div className='flex font-mono flex-col items-center justify-between p-6'>
-          <p className='font-semibold'>
-            {first_name} {last_name}
-          </p>
-          <p hidden={!isShown} className='italic'>
-            {email}
-          </p>
-        </div>
-      </li>
-    </>
+    <div
+      key={id}
+      className='flex flex-row bg-slate-200 shadow-lg items-center px-4 md:w-80 md:h-28 w-96 h-32 gap-x-6 md:gap-x-2 rounded-lg'
+    >
+      <img src={avatar} className='w-20 h-20 rounded-full shadow-md' />
+      <div className='flex font-mono flex-col items-center justify-between p-2'>
+        <p className='font-semibold text-md'>
+          {first_name} {last_name}
+        </p>
+        <p className='text-sm italic'>{email}</p>
+      </div>
+    </div>
   );
 };
