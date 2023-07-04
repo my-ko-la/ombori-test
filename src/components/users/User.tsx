@@ -15,7 +15,6 @@ export const UserComponent: React.FC<User> = ({
       className='flex flex-row bg-slate-200 shadow-lg items-center px-4 md:w-80 md:h-28 w-96 h-32 gap-x-6 md:gap-x-2 rounded-lg'
     >
       <img
-        loading='lazy'
         alt="User's avatar"
         src={avatar}
         className='w-20 h-20 rounded-full shadow-md'
