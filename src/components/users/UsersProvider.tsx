@@ -39,7 +39,6 @@ const UsersProvider: React.FC = () => {
   }, [containerRef]);
 
   const isLastElement = !isLoadingOnTimer && !hasNextPage;
-  console.log(isLastElement, "isLastElement");
 
   return (
     <div className='flex flex-col justify-between h-full'>
