@@ -2,13 +2,19 @@ const GreenPulsatingLoader = () => {
   const getRandomGreenColor = () => {
     const baseColor = 75;
     const range = 30;
-
     const randomGreen = Math.floor(
       Math.random() * (baseColor + range - (baseColor - range) + 1) +
         (baseColor - range)
     );
-
     return randomGreen.toString(16);
+  };
+
+  const getRandomDuration = () => {
+    const minDuration = 2.7;
+    const maxDuration = 3;
+    const randomDuration =
+      Math.random() * (maxDuration - minDuration) + minDuration;
+    return `${randomDuration}s`;
   };
 
   return (
@@ -22,70 +28,45 @@ const GreenPulsatingLoader = () => {
       <circle
         cx='75'
         cy='75'
-        r='15'
+        r='18'
         fill={`#${getRandomGreenColor()}6E4F`}
         fillOpacity='0.3'
       >
         <animate
           attributeName='r'
-          from='15'
+          from='18'
           to='25'
-          dur='1.2s'
-          repeatCount='indefinite'
-        />
-        <animate
-          attributeName='fill-opacity'
-          from='0.3'
-          to='0'
-          dur='1.2s'
+          dur={getRandomDuration()}
           repeatCount='indefinite'
         />
       </circle>
       <circle
         cx='75'
         cy='75'
-        r='25'
+        r='23'
         fill={`#${getRandomGreenColor()}6E4F`}
         fillOpacity='0.5'
       >
         <animate
           attributeName='r'
-          from='25'
+          from='23'
           to='35'
-          dur='1.5s'
-          begin='0.2s'
-          repeatCount='indefinite'
-        />
-        <animate
-          attributeName='fill-opacity'
-          from='0.5'
-          to='0'
-          dur='1.5s'
-          begin='0.2s'
+          dur={getRandomDuration()}
           repeatCount='indefinite'
         />
       </circle>
       <circle
         cx='75'
         cy='75'
-        r='35'
+        r='30'
         fill={`#${getRandomGreenColor()}6E4F`}
         fillOpacity='0.7'
       >
         <animate
           attributeName='r'
-          from='35'
+          from='30'
           to='45'
-          dur='1.8s'
-          begin='0.4s'
-          repeatCount='indefinite'
-        />
-        <animate
-          attributeName='fill-opacity'
-          from='0.7'
-          to='0'
-          dur='1.8s'
-          begin='0.4s'
+          dur={getRandomDuration()}
           repeatCount='indefinite'
         />
       </circle>

@@ -2,12 +2,12 @@ import autoAnimate from "@formkit/auto-animate";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 
-import { UsersAPI } from "../constants/api.constants";
-import fetchUsers from "../functions/async/fetchUsers";
-import GreenPulsatingLoader from "../misc/GreenPulsatingLoader";
-import { User } from "../types/user";
-import { UserComponent } from "./User";
-import LazyLoadComponent from "./utility/LazyLoadComponent";
+import { UsersAPI } from "../../constants/api.constants";
+import fetchUsers from "../../functions/async/fetchUsers";
+import GreenPulsatingLoader from "../../misc/GreenPulsatingLoader";
+import { User } from "../../types/user";
+import { UserComponent } from "../users/User";
+import LazyLoadComponent from "../utility/LazyLoadComponent";
 
 const UsersProvider: React.FC = () => {
   const [isLoadingOnTimer, setIsLoadingOnTimer] = React.useState(true);
@@ -17,19 +17,21 @@ const UsersProvider: React.FC = () => {
     queryKey: [UsersAPI.QUERY_KEY],
     queryFn: async ({ pageParam = UsersAPI.START_PAGE }) =>
       fetchUsers(UsersAPI.URL, pageParam as number),
-    getNextPageParam: (lastPage) => lastPage.page + 1,
+    getNextPageParam: (lastPage) => {
+      if (lastPage.page === lastPage.total_pages) return undefined;
+      return lastPage.page + 1;
+    },
   });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const loaderTimer = setTimeout(() => {
       setIsLoadingOnTimer(false);
     }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     containerRef.current && autoAnimate(containerRef.current);
+    return () => clearTimeout(loaderTimer);
   }, [containerRef]);
+
+  console.log(data);
 
   return (
     <div
@@ -54,6 +56,11 @@ const UsersProvider: React.FC = () => {
             </React.Fragment>
           ))}
         </div>
+      )}
+      {!isLoadingOnTimer && !hasNextPage && (
+        <p className='text-lg text-slate-400 font-extralight py-10'>
+          ...no more users to load
+        </p>
       )}
     </div>
   );
