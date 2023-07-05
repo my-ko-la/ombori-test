@@ -49,7 +49,7 @@ const UsersProvider: React.FC = () => {
           <div
             className='flex flex-col 
               items-center w-full py-4 px-24 gap-8
-              md:grid md:grid-flow-row md:grid-cols-1 md:justify-items-center md:gap-x-28 md:gap-y-8
+              md:grid md:grid-flow-row md:grid-cols-2 md:justify-items-center md:gap-x-28 md:gap-y-8
               lg:grid-cols-3 lg:gap-x-32 lg:min-w-full
               xl:gap-x-48 xl:grid-cols-4'
           >
