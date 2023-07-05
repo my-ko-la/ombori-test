@@ -66,7 +66,7 @@ const UsersProvider: React.FC = () => {
         )}
       </div>
       {isLastElement && (
-        <p className='text-lg text-slate-400 font-extralight py-5 text-center'>
+        <p className='text-lg text-slate-400 animate-fade font-extralight py-5 text-center'>
           ...you've reached the end of the list
         </p>
       )}
