@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Header from "./components/navigation/Header";

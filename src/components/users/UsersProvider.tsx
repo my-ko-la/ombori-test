@@ -41,8 +41,8 @@ const UsersProvider: React.FC = () => {
   const isLastElement = !isLoadingOnTimer && !hasNextPage;
 
   return (
-    <div className='flex flex-col justify-between h-full'>
-      <div ref={containerRef} className='flex flex-col items-center'>
+    <div className='flex flex-col justify-between mt-8 h-full'>
+      <div ref={containerRef} className='flex flex-col items-center pt-6'>
         {isLoadingOnTimer ? (
           <GreenPulsatingLoader />
         ) : (

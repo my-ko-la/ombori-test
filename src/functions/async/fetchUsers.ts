@@ -3,7 +3,7 @@ import { User, UserAPIFetchResult } from "../../types/user";
 const fetchUsers = async (url: string, page: number) => {
   try {
     const data: UserAPIFetchResult<User[]> = await fetch(
-      `${url}?page=${page}&per_page=2`,
+      `${url}?page=${page}&per_page=10`,
       {
         method: "GET",
       }

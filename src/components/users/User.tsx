@@ -12,18 +12,18 @@ export const UserComponent: React.FC<User> = ({
   return (
     <div
       key={id}
-      className='flex flex-row bg-slate-200 shadow-lg items-center px-4 md:w-80 md:h-28 w-96 h-32 gap-x-6 md:gap-x-2 rounded-lg'
+      className='flex flex-row bg-slate-200 shadow-lg items-center px-4 w-72 h-24 md:w-80 md:h-28 sm:w-96 sm:h-32 gap-x-3 sm:gap-x-6 md:gap-x-2 rounded-lg'
     >
       <img
         alt="User's avatar"
         src={avatar}
-        className='w-20 h-20 rounded-full shadow-md'
+        className='sm:w-20 sm:h-20 w-14 h-14 rounded-full shadow-md'
       />
       <div className='flex font-mono flex-col items-center justify-between p-2'>
-        <p className='font-semibold text-md'>
+        <p className='font-semibold text-sm sm:text-md'>
           {first_name} {last_name}
         </p>
-        <p className='text-sm italic'>{email}</p>
+        <p className='text-xs sm:text-sm italic'>{email}</p>
       </div>
     </div>
   );
